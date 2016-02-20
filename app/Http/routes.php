@@ -10,11 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+use App\User;
+use Illuminate\Http\Response;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/user', function () {
+    $users = User::all();
+    return json_encode($users);
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
