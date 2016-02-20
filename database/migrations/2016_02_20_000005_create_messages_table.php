@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->foreign('receiver')->references('id')->on('users');
             $table->string('title');
             $table->text('content');
-            $table->text('attachment');
+            $table->text('attachment')->nullable();
             $table->enum('status', ['read', 'unread']);
             $table->timestamps();
             $table->softDeletes();

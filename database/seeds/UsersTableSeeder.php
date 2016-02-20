@@ -18,7 +18,9 @@ class UsersTableSeeder extends Seeder
         
         $seeds = [
             [
-                'name' => 'Vu',
+                'title' => $faker->title,
+                'first_name' => $faker->firstName,
+                'last_name' => $faker->lastName,
                 'email' => 'admin@mail.com',
                 'password' => bcrypt(123456),
                 'status' => 'active',
@@ -36,7 +38,9 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert($seeds);
         for ($i = 0; $i < 28; $i++) {
             DB::table('users')->insert([ //,
-                'name' => $faker->name,
+                'title' => $faker->title,
+                'first_name' => $faker->firstName,
+                'last_name' => $faker->lastName,
                 'email' => $faker->unique()->email,
                 'password' => bcrypt(123456),
                 'status' => $faker->randomElement(['active', 'banned', 'pending']),
